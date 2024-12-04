@@ -237,6 +237,10 @@ function parseLocalDate (value: string): Date {
 
 const _YYYMMDD = /^([12]\d{3}-([1-9]|0[1-9]|1[0-2])-([1-9]|0[1-9]|[12]\d|3[01]))$/
 
+function date(value: string): Date | null;
+function date(value: Date): Date;
+function date(value?: null): Date;
+function date(value: unknown): null;
 function date (value?: any): Date | null {
   if (value == null) return new Date()
 
@@ -568,6 +572,10 @@ export class VuetifyDateAdapter implements DateAdapter<Date> {
     this.formats = options.formats
   }
 
+  date(value: string): Date | null;
+  date(value: Date): Date;
+  date(value?: null): Date;
+  date(value: unknown): null;
   date (value?: any) {
     return date(value)
   }
